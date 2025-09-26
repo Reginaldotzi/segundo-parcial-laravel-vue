@@ -74,4 +74,14 @@ class AuthController extends Controller
             'message' => 'Logout exitoso, tokens revocados'
         ]);
     }
+
+    /**
+     * Obtener usuario autenticado
+     */
+    public function user(Request $request)
+    {
+        return response()->json([
+            'user' => $request->user()
+        ]);
+    }
 }
