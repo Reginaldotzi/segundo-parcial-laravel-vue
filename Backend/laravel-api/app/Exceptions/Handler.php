@@ -27,4 +27,19 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Handle unauthenticated requests for API routes
+     */
+    protected function unauthenticated($request, \Illuminate\Auth\AuthenticationException $exception)
+    {
+        if ($request->is('api/*')) {
+            return response()->json([
+                'message' => 'Unauthenticated.',
+                'error' => 'Token de acceso requerido'
+            ], 401);
+        }
+
+        return redirect()->guest(route('login'));
+    }
 }
