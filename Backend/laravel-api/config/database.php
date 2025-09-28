@@ -3,7 +3,6 @@
 use Illuminate\Support\Str;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -34,15 +33,6 @@ return [
     */
 
     'connections' => [
-
-        'sqlite' => [
-            'driver' => 'sqlite',
-            'url' => env('DATABASE_URL'),
-            'database' => env('DB_DATABASE', database_path('database.sqlite')),
-            'prefix' => '',
-            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
-        ],
-
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
@@ -61,6 +51,57 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        // Conexiones para cada tenant
+        'tenant_empresa1' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'taller_empresa1',
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'tenant_empresa2' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'taller_empresa2',
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'tenant_empresa3' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => 'taller_empresa3',
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'url' => env('DATABASE_URL'),
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
         'pgsql' => [
@@ -92,7 +133,6 @@ return [
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
-
     ],
 
     /*
@@ -120,7 +160,6 @@ return [
     */
 
     'redis' => [
-
         'client' => env('REDIS_CLIENT', 'phpredis'),
 
         'options' => [
@@ -145,7 +184,5 @@ return [
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
-
     ],
-
 ];

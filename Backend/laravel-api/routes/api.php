@@ -21,8 +21,8 @@ use App\Http\Controllers\Api\TareaController;
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 
-// Rutas protegidas (requieren autenticación)
-Route::middleware('auth:sanctum')->group(function () {
+// Rutas protegidas (requieren autenticación y multitenancy)
+Route::middleware(['tenant', 'auth:sanctum', 'set.tenant'])->group(function () {
     // Autenticación
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', [AuthController::class, 'user']);
