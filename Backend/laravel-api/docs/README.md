@@ -26,6 +26,7 @@
 - stack lamp (linux, apache, mysql, php) instalado
 - backend laravel desplegado y funcional
 - repositorio clonado desde github al servidor
+- problemas con el frontend y la conectividad
 
 ---
 
@@ -455,3 +456,9 @@ el backend está completamente funcional en aws con todas las caracteristicas im
 **proyecto:** segundo parcial laravel + vue.js  
 **fecha:** septiembre 2025  
 **estudiante:** reginaldo sebastian tzic fernández
+
+### **nuevo estado final:**
+al intentar arreglar la conectividad de el frontend se terminó desconfigurando la conexión con el backend, y ahora el backend solo funciona al momento de encenderlo manualmente en consola, y por motivos de la conexión a internet, ya no se logró resolver.
+
+### Nueva actualización.
+Al final si se pudo arreglar el backend y si hay conexión del backend en aws.
